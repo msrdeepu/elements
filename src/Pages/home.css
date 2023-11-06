@@ -1,0 +1,14 @@
+.name-holder {
+  padding: 20px;
+  width: 350px;
+  border: solid lightblue 0.5px;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+.top-home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}

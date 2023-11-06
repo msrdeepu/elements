@@ -7,17 +7,17 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
-import { loginFeature } from "../services/apiAuth";
+// import { loginFeature } from "../services/apiAuth";
 import { Link } from "react-router-dom";
 
 //use-login-hook
-import { useLogin } from "../services/useLogin";
+// import { useLogin } from "../services/useLogin";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("mspreddy2023@gmail.com");
   const [password, setPassword] = useState("Sandeep@12345");
 
-  const [login, isLoading] = useLogin();
+  // const [login, isLoading] = useLogin();
 
   const handleSubmit = (e) => {
     // console.log(data);
@@ -44,33 +44,16 @@ const LoginForm = () => {
             >
               LOGIN
             </Typography>
-            <form className="login-form" onSubmit={handleSubmit}>
+            <form className="login-form">
               <label htmlFor="emailItem">User Email</label>
-              <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                autoComplete="emailItem"
-                type="text"
-                id="emailItem"
-                disabled={isLoading}
-              />
+              <input type="text" id="emailItem" />
               <label htmlFor="passwordItem/">Password</label>
-              <input
-                type="text"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                autoComplete="current-password"
-                typeof="password"
-                id="passwordItem"
-                disabled={isLoading}
-              />
+              <input type="text" typeof="password" id="passwordItem" />
               <div className="btn-container">
                 <Button
-                  type="submit"
-                  startIcon={<LockOpenIcon />}
+                  startIcon={<AccountCircleIcon />}
                   className="login-btn"
                   variant="contained"
-                  disabled={isLoading}
                 >
                   Login
                 </Button>
@@ -79,9 +62,10 @@ const LoginForm = () => {
           </CardContent>
           <CardActions>
             <Link to="/signup">
+              {" "}
               <Button
                 className="signup-btn"
-                startIcon={<AccountCircleIcon />}
+                startIcon={<LockOpenIcon />}
                 size="small"
               >
                 Sign Up

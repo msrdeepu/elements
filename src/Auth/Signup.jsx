@@ -1,5 +1,5 @@
 import "./signup.css";
-import * as React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -9,8 +9,25 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 
 import { Link } from "react-router-dom";
+import supabase from "../services/supabase";
 
 const Signup = () => {
+  const [formData, setFormData] = useState({
+    nameuser: "",
+    useremail: "",
+    password: "",
+  });
+
+  console.log(formData);
+  const handleChange = (e) => {
+    e.preventDefault();
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
   return (
     <div className="login-main-container">
       <Card sx={{ maxWidth: 390 }}>
@@ -30,16 +47,33 @@ const Signup = () => {
           </Typography>
           <form className="login-form">
             <label htmlFor="username">User Name</label>
-            <input type="text" id="username" />
+            <input
+              onChange={handleChange}
+              type="text"
+              name="nameuser"
+              id="username"
+            />
             <label htmlFor="emailItem">User Email</label>
-            <input type="text" id="emailItem" />
+            <input
+              onChange={handleChange}
+              type="text"
+              name="useremail"
+              id="emailItem"
+            />
             <label htmlFor="passwordItem/">Password</label>
-            <input type="text" typeof="password" id="passwordItem" />
+            <input
+              onChange={handleChange}
+              type="text"
+              name="password"
+              typeof="password"
+              id="passwordItem"
+            />
             <div className="btn-container">
               <Button
                 startIcon={<AccountCircleIcon />}
                 className="login-btn"
                 variant="contained"
+                type="submit"
               >
                 Signup
               </Button>
