@@ -120,7 +120,7 @@ const App = () => {
               QUIZ APP
             </Typography>{" "}
             <Button color="inherit" style={{ color: "white" }}>
-              Welcome To Quiz
+              Welcome to QUIz
             </Button>
           </Toolbar>
         </AppBar>

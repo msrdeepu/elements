@@ -1,40 +1,147 @@
-import React, { useState } from "react";
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import ButtonBase from "@mui/material/ButtonBase";
+import Typography from "@mui/material/Typography";
 import "./home.css";
-import Button from "@mui/material/Button";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
+
 import { Link } from "react-router-dom";
+
+const images = [
+  {
+    url: "https://biocruztechnologies.com/wp-content/uploads/2018/11/chemicals.jpg",
+    title: "Start Quiz",
+    width: "40%",
+  },
+  // {
+  //   url: "https://biocruztechnologies.com/wp-content/uploads/2018/11/chemicals.jpg",
+  //   title: "Burgers",
+  //   width: "30%",
+  // },
+  // {
+  //   url: "https://biocruztechnologies.com/wp-content/uploads/2018/11/chemicals.jpg",
+  //   title: "Camera",
+  //   width: "30%",
+  // },
+];
+
+const ImageButton = styled(ButtonBase)(({ theme }) => ({
+  position: "relative",
+  height: 200,
+  [theme.breakpoints.down("sm")]: {
+    width: "100% !important", // Overrides inline-style
+    height: 100,
+  },
+  "&:hover, &.Mui-focusVisible": {
+    zIndex: 1,
+    "& .MuiImageBackdrop-root": {
+      opacity: 0.15,
+    },
+    "& .MuiImageMarked-root": {
+      opacity: 0,
+    },
+    "& .MuiTypography-root": {
+      border: "4px solid currentColor",
+    },
+  },
+}));
+
+const ImageSrc = styled("span")({
+  position: "absolute",
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
+  backgroundSize: "cover",
+  backgroundPosition: "center 40%",
+});
+
+const Image = styled("span")(({ theme }) => ({
+  position: "absolute",
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  color: theme.palette.common.white,
+}));
+
+const ImageBackdrop = styled("span")(({ theme }) => ({
+  position: "absolute",
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
+  backgroundColor: theme.palette.common.black,
+  opacity: 0.4,
+  transition: theme.transitions.create("opacity"),
+}));
+
+const ImageMarked = styled("span")(({ theme }) => ({
+  height: 3,
+  width: 18,
+  backgroundColor: theme.palette.common.white,
+  position: "absolute",
+  bottom: -2,
+  left: "calc(50% - 9px)",
+  transition: theme.transitions.create("opacity"),
+}));
 const Home = () => {
-  const [name, setName] = useState("");
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
   return (
-    <div>
-      <div className="top-home-container">
-        <h3>Please Enter Your Name to Start</h3>
-        <input
-          className="name-holder"
-          placeholder="Please Enter Your Name to Start"
-          onChange={handleName}
-        />
-        {name !== "" ? (
-          <Link to="/quiz">
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        minWidth: 300,
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "75vh",
+      }}
+    >
+      {images.map((image) => (
+        <>
+          <ImageButton
+            focusRipple
+            key={image.title}
+            style={{
+              width: image.width,
+              borderRadius: "8px",
+            }}
+          >
             {" "}
-            <Button
-              style={{ marginTop: "8px", width: "125%" }}
-              startIcon={<AccountCircleIcon />}
-              className="login-btn"
-              variant="contained"
-            >
-              Start
-            </Button>
-          </Link>
-        ) : (
-          ""
-        )}
-      </div>
-    </div>
+            <Link to={"/quiz"}>
+              <ImageSrc
+                style={{
+                  backgroundImage: `url(${image.url})`,
+                  borderRadius: "8px",
+                }}
+              />
+              <ImageBackdrop className="MuiImageBackdrop-root" />
+              <Image>
+                <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  sx={{
+                    fontSize: "38px",
+                    position: "relative",
+                    p: 4,
+                    pt: 2,
+                    pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                  }}
+                >
+                  {image.title}
+                  <ImageMarked className="MuiImageMarked-root" />
+                </Typography>
+              </Image>
+            </Link>
+          </ImageButton>
+        </>
+      ))}
+    </Box>
   );
 };
 
