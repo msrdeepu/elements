@@ -23,6 +23,8 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+//all elements
+import ELements from "./Elements";
 
 import {
   createBrowserRouter,
@@ -41,6 +43,7 @@ import Quiz from "./Pages/Quiz";
 //auth
 import LoginForm from "./Auth/Login";
 import Signup from "./Auth/Signup";
+import Elements from "./Elements";
 
 const drawerWidth = 200;
 

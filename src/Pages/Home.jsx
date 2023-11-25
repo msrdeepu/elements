@@ -5,7 +5,10 @@ import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
 import "./home.css";
 
+import Elements from "../Elements";
+import CardItem from "../CardItem/CardItem";
 import { Link } from "react-router-dom";
+import { Padding } from "@mui/icons-material";
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: "relative",
@@ -83,7 +86,19 @@ const Home = () => {
         height: "75vh",
       }}
     >
-      All Elements Goes Here
+      {Elements.map((item) => (
+        <CardItem
+          id={item.atomicNumber}
+          symbol={item.symbol}
+          name={item.name}
+          yearfound={item.yearDiscovered}
+          block={item.block}
+          ec={item.electronicConfiguration}
+          groupBlock={item.groupBlock}
+          an={item.atomicNumber}
+          standardState={item.standardState}
+        />
+      ))}
     </Box>
   );
 };
