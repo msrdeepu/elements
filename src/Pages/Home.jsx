@@ -7,24 +7,6 @@ import "./home.css";
 
 import { Link } from "react-router-dom";
 
-const images = [
-  {
-    url: "https://biocruztechnologies.com/wp-content/uploads/2018/11/chemicals.jpg",
-    title: "Start Quiz",
-    width: "40%",
-  },
-  // {
-  //   url: "https://biocruztechnologies.com/wp-content/uploads/2018/11/chemicals.jpg",
-  //   title: "Burgers",
-  //   width: "30%",
-  // },
-  // {
-  //   url: "https://biocruztechnologies.com/wp-content/uploads/2018/11/chemicals.jpg",
-  //   title: "Camera",
-  //   width: "30%",
-  // },
-];
-
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: "relative",
   height: 200,
@@ -101,46 +83,7 @@ const Home = () => {
         height: "75vh",
       }}
     >
-      {images.map((image) => (
-        <>
-          <ImageButton
-            focusRipple
-            key={image.title}
-            style={{
-              width: image.width,
-              borderRadius: "8px",
-            }}
-          >
-            {" "}
-            <Link to={"/quiz"}>
-              <ImageSrc
-                style={{
-                  backgroundImage: `url(${image.url})`,
-                  borderRadius: "8px",
-                }}
-              />
-              <ImageBackdrop className="MuiImageBackdrop-root" />
-              <Image>
-                <Typography
-                  component="span"
-                  variant="subtitle1"
-                  color="inherit"
-                  sx={{
-                    fontSize: "38px",
-                    position: "relative",
-                    p: 4,
-                    pt: 2,
-                    pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                  }}
-                >
-                  {image.title}
-                  <ImageMarked className="MuiImageMarked-root" />
-                </Typography>
-              </Image>
-            </Link>
-          </ImageButton>
-        </>
-      ))}
+      All Elements Goes Here
     </Box>
   );
 };

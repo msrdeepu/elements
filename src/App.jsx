@@ -44,6 +44,21 @@ import Signup from "./Auth/Signup";
 
 const drawerWidth = 200;
 
+//let navItems = ["S-BLOCK", "P-BLOCK", "D-BLOCK", "F-BLOCK", "CONTACT"];
+
+let navItems = [
+  { category: "ALL", link: "#" },
+  { category: "S-BLOCK", link: "#" },
+  { category: "P-BLOCK", link: "#" },
+  { category: "D-BLOCK", link: "#" },
+  { category: "F-BLOCK", link: "#" },
+];
+
+let navItemsTwo = [
+  { category: "INSTAGRAM", link: "#" },
+  { category: "CONTACT", link: "#" },
+];
+
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -117,11 +132,11 @@ const App = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              QUIZ APP
+              ELEMENTS
             </Typography>{" "}
-            <Button color="inherit" style={{ color: "white" }}>
-              Welcome to QUIz
-            </Button>
+            {/* <Button color="inherit" style={{ color: "white" }}>
+              Welcome to Elements App
+            </Button> */}
           </Toolbar>
         </AppBar>
         <Drawer
@@ -148,26 +163,44 @@ const App = () => {
           </DrawerHeader>
           <Divider />
           <List>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+            {navItems.map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
-                  <ListItemText primary={text} />
+                  <NavLink
+                    style={{
+                      listStyle: "none",
+                      textDecoration: "none",
+                      color: "purple",
+                    }}
+                    to={text.link}
+                  >
+                    <ListItemText primary={text.category} />
+                  </NavLink>
                 </ListItemButton>
               </ListItem>
             ))}
           </List>
           <Divider />
           <List>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
+            {navItemsTwo.map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
-                  <ListItemText primary={text} />
+                  <NavLink
+                    style={{
+                      listStyle: "none",
+                      textDecoration: "none",
+                      color: "orange",
+                    }}
+                    to={text.link}
+                  >
+                    <ListItemText primary={text.category} />
+                  </NavLink>
                 </ListItemButton>
               </ListItem>
             ))}
