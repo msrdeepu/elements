@@ -12,6 +12,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import Button from "@mui/material/Button";
 
+import { Link } from "react-router-dom";
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -81,7 +83,10 @@ export default function CardItem({
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <Button variant="contained">View Full Details</Button>
+          <Link to={`/elements/${id}`}>
+            {" "}
+            <Button variant="contained">View Full Details</Button>
+          </Link>
         </IconButton>
       </CardActions>
     </Card>

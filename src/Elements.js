@@ -1,4 +1,4 @@
-let Elements = [
+export default [
   {
     atomicNumber: 1,
     symbol: "H",
@@ -2950,5 +2950,3 @@ let Elements = [
     group: 18,
   },
 ];
-
-export default Elements;

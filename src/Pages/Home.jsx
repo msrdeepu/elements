@@ -1,11 +1,12 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
 import "./home.css";
 
-import Elements from "../Elements";
+import elementdData from "../Elements";
 import CardItem from "../CardItem/CardItem";
 import { Link } from "react-router-dom";
 import { Padding } from "@mui/icons-material";
@@ -74,32 +75,60 @@ const ImageMarked = styled("span")(({ theme }) => ({
   transition: theme.transitions.create("opacity"),
 }));
 const Home = () => {
+  const [search, setSearch] = useState("");
+  console.log(search);
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        minWidth: 300,
-        width: "100%",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "75vh",
-      }}
-    >
-      {Elements.map((item) => (
-        <CardItem
-          id={item.atomicNumber}
-          symbol={item.symbol}
-          name={item.name}
-          yearfound={item.yearDiscovered}
-          block={item.block}
-          ec={item.electronicConfiguration}
-          groupBlock={item.groupBlock}
-          an={item.atomicNumber}
-          standardState={item.standardState}
+    <>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          flexWrap: "wrap",
+          marginBottom: "8px",
+        }}
+      >
+        <h2 style={{ color: "orange" }}>Search Elements</h2>
+        <TextField
+          type="search"
+          id="standard-basic"
+          label="Search Elements"
+          variant="standard"
+          onChange={(e) => setSearch(e.target.value)}
         />
-      ))}
-    </Box>
+      </div>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          minWidth: 300,
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "75vh",
+        }}
+      >
+        {elementdData
+          .filter((item) => {
+            return search.toLowerCase() === ""
+              ? item
+              : item.name.toLowerCase().includes(search);
+          })
+          .map((item) => (
+            <CardItem
+              id={item.atomicNumber}
+              symbol={item.symbol}
+              name={item.name}
+              yearfound={item.yearDiscovered}
+              block={item.block}
+              ec={item.electronicConfiguration}
+              groupBlock={item.groupBlock}
+              an={item.atomicNumber}
+              standardState={item.standardState}
+            />
+          ))}
+      </Box>
+    </>
   );
 };
 

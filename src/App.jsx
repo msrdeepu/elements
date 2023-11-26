@@ -39,6 +39,7 @@ import "./App.css";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Quiz from "./Pages/Quiz";
+import Fulldetails from "./Pages/Fulldetails/Fulldetails";
 
 //auth
 import LoginForm from "./Auth/Login";
@@ -50,7 +51,7 @@ const drawerWidth = 200;
 //let navItems = ["S-BLOCK", "P-BLOCK", "D-BLOCK", "F-BLOCK", "CONTACT"];
 
 let navItems = [
-  { category: "ALL", link: "#" },
+  { category: "ELEMENTS", link: "/elements" },
   { category: "S-BLOCK", link: "#" },
   { category: "P-BLOCK", link: "#" },
   { category: "D-BLOCK", link: "#" },
@@ -223,7 +224,7 @@ const App = () => {
       element: <Layout />,
       children: [
         {
-          path: "/",
+          path: "/elements",
           element: <Home />,
         },
         {
@@ -233,6 +234,10 @@ const App = () => {
         {
           path: "/quiz",
           element: <Quiz />,
+        },
+        {
+          path: `/elements/:id`,
+          element: <Fulldetails />,
         },
       ],
     },
