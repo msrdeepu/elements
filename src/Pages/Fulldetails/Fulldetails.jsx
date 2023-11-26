@@ -21,9 +21,7 @@ const Fulldetails = () => {
           <button className="back-btn-item">BACK</button>
         </Link>
       </div>
-      <div className="top-title-container">
-        <h1>Full Details</h1>
-      </div>
+
       <div className="secondary-container">
         <div className="element-data-container">
           <div className="element-title-container">
