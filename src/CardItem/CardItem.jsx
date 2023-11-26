@@ -83,7 +83,7 @@ export default function CardItem({
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <Link to={`/elements/${id}`}>
+          <Link to={`/elements/${id}/${name}`}>
             {" "}
             <Button variant="contained">View Full Details</Button>
           </Link>

@@ -4,13 +4,14 @@ import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import "./home.css";
 
 import elementdData from "../Elements";
 import CardItem from "../CardItem/CardItem";
 import { Link } from "react-router-dom";
 import { Padding } from "@mui/icons-material";
-
+import SearchIcon from "@mui/icons-material/Search";
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: "relative",
   height: 200,
@@ -82,18 +83,18 @@ const Home = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-evenly",
+          justifyContent: "center",
           alignItems: "center",
           flexWrap: "wrap",
           marginBottom: "8px",
         }}
       >
-        <h2 style={{ color: "orange" }}>Search Elements</h2>
         <TextField
           type="search"
           id="standard-basic"
-          label="Search Elements"
+          label="Search Elements Here..."
           variant="standard"
+          style={{ width: "65%" }}
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>

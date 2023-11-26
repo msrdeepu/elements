@@ -236,7 +236,7 @@ const App = () => {
           element: <Quiz />,
         },
         {
-          path: `/elements/:id`,
+          path: `/elements/:id/:name`,
           element: <Fulldetails />,
         },
       ],
