@@ -25,6 +25,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 //all elements
 import ELements from "./Elements";
+import MainHome from "./Pages/Entry/MainHome";
 
 import {
   createBrowserRouter,
@@ -51,8 +52,8 @@ const drawerWidth = 200;
 //let navItems = ["S-BLOCK", "P-BLOCK", "D-BLOCK", "F-BLOCK", "CONTACT"];
 
 let navItems = [
+  { category: "HOME", link: "/" },
   { category: "ELEMENTS", link: "/elements" },
-  { category: "S-BLOCK", link: "#" },
   { category: "P-BLOCK", link: "#" },
   { category: "D-BLOCK", link: "#" },
   { category: "F-BLOCK", link: "#" },
@@ -223,6 +224,10 @@ const App = () => {
       path: "/",
       element: <Layout />,
       children: [
+        {
+          path: "/",
+          element: <MainHome />,
+        },
         {
           path: "/elements",
           element: <Home />,

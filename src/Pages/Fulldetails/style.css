@@ -28,7 +28,7 @@ font-family: 'Mulish', sans-serif; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("../../../public/assets/elements-banner.jpg");
+  background-image: url("/assets/elements-banner.jpg");
   background-size: cover;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;

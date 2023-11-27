@@ -1,0 +1,14 @@
+.go-to-ele-btn {
+  padding: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  font-family: "Mulish";
+}
+.go-to-ele-btn:hover {
+  transform: 1sec;
+  transition: ease-in-out 0.5s;
+  background-color: purple;
+}
