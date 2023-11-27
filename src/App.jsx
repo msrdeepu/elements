@@ -16,17 +16,16 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import ClassIcon from "@mui/icons-material/Class";
+import HomeIcon from "@mui/icons-material/Home";
 import Button from "@mui/material/Button";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Link } from "react-router-dom";
 //all elements
 import ELements from "./Elements";
 import MainHome from "./Pages/Entry/MainHome";
-
+import About from "./Pages/About/About";
 import {
   createBrowserRouter,
   Outlet,
@@ -38,14 +37,7 @@ import {
 import "./App.css";
 
 import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Quiz from "./Pages/Quiz";
 import Fulldetails from "./Pages/Fulldetails/Fulldetails";
-
-//auth
-import LoginForm from "./Auth/Login";
-import Signup from "./Auth/Signup";
-import Elements from "./Elements";
 
 const drawerWidth = 200;
 
@@ -54,15 +46,12 @@ const drawerWidth = 200;
 let navItems = [
   { category: "HOME", link: "/" },
   { category: "ELEMENTS", link: "/elements" },
-  { category: "P-BLOCK", link: "#" },
-  { category: "D-BLOCK", link: "#" },
-  { category: "F-BLOCK", link: "#" },
+  // { category: "P-BLOCK", link: "#" },
+  // { category: "D-BLOCK", link: "#" },
+  // { category: "F-BLOCK", link: "#" },
 ];
 
-let navItemsTwo = [
-  { category: "INSTAGRAM", link: "#" },
-  { category: "CONTACT", link: "#" },
-];
+let navItemsTwo = [{ category: "ABOUT", link: "/about" }];
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -142,6 +131,11 @@ const App = () => {
             {/* <Button color="inherit" style={{ color: "white" }}>
               Welcome to Elements App
             </Button> */}
+            <Link to="/about">
+              <div className="profile-container-top">
+                <div className="profile-pic"></div>
+              </div>
+            </Link>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -172,7 +166,7 @@ const App = () => {
               <ListItem key={text} disablePadding>
                 <ListItemButton>
                   <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    {index % 2 === 0 ? <HomeIcon /> : <ClassIcon />}
                   </ListItemIcon>
                   <NavLink
                     style={{
@@ -193,9 +187,7 @@ const App = () => {
             {navItemsTwo.map((text, index) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
+                  <ListItemIcon>{<AccountCircleIcon />}</ListItemIcon>
                   <NavLink
                     style={{
                       listStyle: "none",
@@ -236,23 +228,12 @@ const App = () => {
           path: "/about",
           element: <About />,
         },
-        {
-          path: "/quiz",
-          element: <Quiz />,
-        },
+
         {
           path: `/elements/:id/:name`,
           element: <Fulldetails />,
         },
       ],
-    },
-    {
-      path: "/login",
-      element: <LoginForm />,
-    },
-    {
-      path: "/signup",
-      element: <Signup />,
     },
   ]);
 

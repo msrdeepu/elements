@@ -18,3 +18,13 @@
 .content-container {
   width: 80%;
 }
+.profile-pic {
+  height: 50px;
+  width: 50px;
+  background-image: url("../public//assets/deepu.jpeg");
+  background-size: cover;
+  border-radius: 12px;
+}
+.profile-container-top {
+  padding: 8px;
+}
