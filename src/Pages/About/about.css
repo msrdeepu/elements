@@ -11,3 +11,67 @@ font-family: 'Philosopher', sans-serif; */
 .name-title {
   font-family: "Philosopher", sans-serif;
 }
+.main-container,
+.text-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+  margin-top: 8px;
+}
+.description {
+  line-height: 7vh;
+}
+.social-contact {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.name-title {
+  color: crimson;
+}
+.sub-title-tag {
+  color: purple;
+}
+.name-title-container {
+  margin-left: 8px;
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+@media screen and (min-width: 700px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    padding: 5px;
+  }
+  .description {
+    line-height: 4vh;
+    max-width: 50%;
+    margin-top: 8px;
+  }
+  .social-contact {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .img-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .social-container {
+    display: flex;
+    justify-content: start;
+  }
+}
